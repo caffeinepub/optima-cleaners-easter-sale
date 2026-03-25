@@ -95,3 +95,15 @@
     opacity: 1;
   }
 }
+
+.review-card {
+  box-shadow: 0 0 28px 4px rgba(3, 169, 244, 0.18), 0 4px 16px 0
+    rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.review-card:hover {
+  box-shadow: 0 0 40px 8px rgba(3, 169, 244, 0.28), 0 6px 20px 0
+    rgba(0, 0, 0, 0.14);
+  transform: scale(1.02);
+}

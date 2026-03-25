@@ -72,9 +72,18 @@ function PillButton({
     outline: "border-2 bg-transparent hover:bg-brand-mint-lighter",
   };
 
+  const [hovered, setHovered] = useState(false);
+
   const inlineStyles: React.CSSProperties =
     variant === "primary"
-      ? { backgroundColor: "#03A9F4" }
+      ? {
+          backgroundColor: hovered ? "#0288D1" : "#03A9F4",
+          transform: hovered ? "translateY(-2px)" : "translateY(0)",
+          boxShadow: hovered
+            ? "0 8px 24px rgba(3, 169, 244, 0.45)"
+            : "0 4px 14px rgba(3, 169, 244, 0.30)",
+          transition: "background-color 0.2s, transform 0.2s, box-shadow 0.2s",
+        }
       : variant === "white"
         ? { color: "#03A9F4" }
         : { borderColor: "#03A9F4", color: "#03A9F4" };
@@ -86,6 +95,8 @@ function PillButton({
       disabled={disabled}
       data-ocid={dataOcid}
       style={inlineStyles}
+      onMouseEnter={() => variant === "primary" && setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       className={`${base} ${variants[variant]} ${className}`}
     >
       {children}
@@ -417,56 +428,62 @@ export default function App() {
 
           {/* Hero content — 2-column grid */}
           <div className="relative z-10 flex-1 flex items-center">
-            <div className="max-w-6xl mx-auto px-4 py-12 sm:py-16 w-full">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="max-w-7xl ml-auto mr-[max(0px,calc((100vw-72rem)/2))] px-4 py-12 sm:py-16 w-full">
+              <div className="grid grid-cols-1 lg:grid-cols-[58%_42%] gap-8 items-center">
                 {/* LEFT: existing content + trust points */}
-                <div>
-                  <div className="animate-fade-up inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white border border-white/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
+                <div className="pl-0">
+                  <div className="animate-fade-up inline-flex items-center gap-2 bg-black/40 backdrop-blur-md text-white border border-white/40 rounded-full px-4 py-2 text-sm font-semibold mb-6">
                     🐣 Limited-Time Easter Offer – Ends Soon
                   </div>
 
                   <h1
-                    className="animate-fade-up text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6"
+                    className="animate-fade-up text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6"
                     style={{
                       transitionDelay: "0.1s",
+                      lineHeight: "1.15",
                       textShadow:
-                        "0 2px 16px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)",
+                        "0 2px 20px rgba(0,0,0,0.65), 0 1px 6px rgba(0,0,0,0.5)",
                     }}
                   >
-                    Easter Cleaning Sale –{" "}
-                    <span className="text-yellow-200">Get Your Home Ready</span>{" "}
-                    Before Guests Arrive
+                    <span className="block whitespace-nowrap text-yellow-200">
+                      Easter Cleaning Sale
+                    </span>
+                    <span className="block">
+                      Get Your Home Ready Before Guests Arrive
+                    </span>
                   </h1>
 
-                  <p
-                    className="animate-fade-up text-lg sm:text-xl text-white/90 mb-10 leading-relaxed"
-                    style={{
-                      transitionDelay: "0.2s",
-                      textShadow:
-                        "0 1px 10px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.3)",
-                    }}
-                  >
-                    Save up to <strong className="text-white">$150</strong> on
-                    Easter cleaning bundles. Oven, BBQ, carpet and deep cleaning
-                    for busy homes.
-                  </p>
-
-                  <div
-                    className="animate-fade-up"
-                    style={{ transitionDelay: "0.3s" }}
-                  >
-                    <PillButton
-                      onClick={scrollToQuote}
-                      variant="white"
-                      className="text-base px-8 py-4 shadow-xl animate-pulse-soft"
-                      data-ocid="hero.book_easter_clean.primary_button"
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-5 py-5 mb-8 shadow-md border border-white/20">
+                    <p
+                      className="animate-fade-up text-lg sm:text-xl text-white font-medium leading-relaxed max-w-xl mb-4"
+                      style={{
+                        transitionDelay: "0.2s",
+                        textShadow:
+                          "0 1px 12px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)",
+                      }}
                     >
-                      🐰 Get My Quote
-                    </PillButton>
+                      Save up to <strong className="text-white">$150</strong> on
+                      Easter cleaning bundles including oven, BBQ, carpet and
+                      deep cleaning.
+                    </p>
+
+                    <div
+                      className="animate-fade-up"
+                      style={{ transitionDelay: "0.3s" }}
+                    >
+                      <PillButton
+                        onClick={scrollToQuote}
+                        variant="primary"
+                        className="text-base font-bold px-10 py-5 animate-pulse-soft"
+                        data-ocid="hero.book_easter_clean.primary_button"
+                      >
+                        🐰 Get My Quote
+                      </PillButton>
+                    </div>
                   </div>
 
                   {/* Trust points */}
-                  <div className="flex flex-col gap-2 mt-6">
+                  <div className="flex flex-col gap-2.5">
                     {[
                       {
                         icon: <Star className="w-4 h-4" />,
@@ -483,7 +500,8 @@ export default function App() {
                     ].map((tp) => (
                       <div
                         key={tp.text}
-                        className="flex items-center gap-2 text-white text-sm font-medium drop-shadow"
+                        className="flex items-center gap-2.5 text-white text-sm font-semibold bg-black/30 backdrop-blur-sm rounded-full px-3 py-1.5 w-fit"
+                        style={{ textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}
                       >
                         <span
                           className="bg-white rounded-full p-0.5"
@@ -795,7 +813,7 @@ export default function App() {
 
         {/* ── Google Reviews / Testimonials Section ── */}
         <section
-          className="py-16 px-4 bg-white overflow-hidden"
+          className="py-16 px-4 bg-white"
           data-ocid="testimonials.section"
         >
           <div className="max-w-5xl mx-auto text-center mb-10 animate-fade-up">
@@ -811,9 +829,12 @@ export default function App() {
           </div>
 
           {/* Desktop: CSS infinite scroll animation */}
-          <div className="hidden md:block overflow-hidden">
+          <div
+            className="hidden md:block py-10"
+            style={{ overflowX: "clip", overflowClipMargin: "20px" }}
+          >
             <div
-              className="flex gap-6 animate-testimonials-scroll"
+              className="flex gap-8 animate-testimonials-scroll"
               style={{ width: "max-content" }}
             >
               {[
@@ -868,15 +889,17 @@ export default function App() {
               ].map((item, i) => (
                 <div
                   key={item.id}
-                  className="flex-shrink-0 rounded-2xl shadow-xl overflow-hidden"
+                  className="flex-shrink-0 rounded-2xl review-card"
                   style={{ width: "380px" }}
                   data-ocid={`testimonials.item.${(i % 6) + 1}`}
                 >
-                  <img
-                    src={item.src}
-                    alt={`Customer review ${(i % 6) + 1}`}
-                    className="w-full h-auto object-cover block"
-                  />
+                  <div className="rounded-2xl overflow-hidden">
+                    <img
+                      src={item.src}
+                      alt={`Customer review ${(i % 6) + 1}`}
+                      className="w-full h-auto object-cover block"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -884,7 +907,7 @@ export default function App() {
 
           {/* Mobile: touch scroll with snap */}
           <div
-            className="md:hidden flex gap-4 overflow-x-auto pb-4"
+            className="md:hidden flex gap-4 overflow-x-auto py-4"
             style={{
               scrollSnapType: "x mandatory",
               WebkitOverflowScrolling: "touch",
@@ -901,15 +924,17 @@ export default function App() {
             ].map((src, i) => (
               <div
                 key={src}
-                className="flex-shrink-0 rounded-2xl shadow-md overflow-hidden"
+                className="flex-shrink-0 rounded-2xl review-card"
                 style={{ width: "85vw", scrollSnapAlign: "center" }}
                 data-ocid={`testimonials.item.${i + 1}`}
               >
-                <img
-                  src={src}
-                  alt={`Customer review ${i + 1}`}
-                  className="w-full h-auto object-cover block"
-                />
+                <div className="rounded-2xl overflow-hidden">
+                  <img
+                    src={src}
+                    alt={`Customer review ${i + 1}`}
+                    className="w-full h-auto object-cover block"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -975,8 +1000,12 @@ export default function App() {
 
               {/* Card 2 – Yellow (highlighted) */}
               <div
-                className="rounded-3xl p-6 flex flex-col gap-4 shadow-2xl border-[3px] border-[#03A9F4] relative scale-105"
-                style={{ backgroundColor: "#FFFFFF" }}
+                className="rounded-3xl p-6 flex flex-col gap-4 border-[3px] border-[#03A9F4] relative scale-105"
+                style={{
+                  boxShadow:
+                    "0 8px 40px 0 rgba(3,169,244,0.28), 0 4px 16px 0 rgba(0,0,0,0.12)",
+                  backgroundColor: "#FFFFFF",
+                }}
               >
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span
@@ -1185,7 +1214,9 @@ export default function App() {
         <section
           id="offer"
           className="py-16 px-4"
-          style={{ background: "oklch(var(--brand-teal))" }}
+          style={{
+            background: "linear-gradient(135deg, #29B6F6 0%, #0288D1 100%)",
+          }}
         >
           <div className="max-w-3xl mx-auto text-center animate-fade-up">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
@@ -1388,24 +1419,26 @@ export default function App() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="bg-white border-t border-[#B3E5FC] py-12 px-4">
+      <footer className="bg-[#03A9F4] py-10 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
+            {/* Brand column */}
             <div className="flex flex-col gap-3">
               <img
                 src="https://res.cloudinary.com/dxqa2ywnx/image/upload/v1774399266/logo_02a8f4_1_igbxuh.svg"
                 alt="Optima Cleaners"
-                className="h-8 w-auto object-contain"
+                className="h-8 w-auto object-contain bg-white rounded px-2 py-1"
                 style={{ maxWidth: 160 }}
               />
-              <p className="text-gray-500 text-sm max-w-xs">
+              <p className="text-white/90 text-sm max-w-xs">
                 Trusted by hundreds of Australian households. Safe,
                 professional, and always on time.
               </p>
             </div>
 
+            {/* Quick Links */}
             <div>
-              <div className="font-bold text-[#03A9F4] mb-3 text-sm uppercase tracking-wider">
+              <div className="font-bold text-white mb-3 text-sm uppercase tracking-wider">
                 Quick Links
               </div>
               <div className="flex flex-col gap-2">
@@ -1418,7 +1451,7 @@ export default function App() {
                     key={link.label}
                     href={link.href}
                     data-ocid={`footer.${link.label.toLowerCase().replace(/ /g, "-")}.link`}
-                    className="text-gray-600 hover:text-[#03A9F4] text-sm transition-colors"
+                    className="text-white/80 hover:text-white text-sm transition-colors"
                   >
                     {link.label}
                   </a>
@@ -1426,39 +1459,32 @@ export default function App() {
               </div>
             </div>
 
+            {/* Contact */}
             <div>
-              <div className="font-bold text-[#03A9F4] mb-3 text-sm uppercase tracking-wider">
+              <div className="font-bold text-white mb-3 text-sm uppercase tracking-wider">
                 Contact
               </div>
-              <div className="flex flex-col gap-2 text-sm text-gray-500">
+              <div className="flex flex-col gap-2 text-sm text-white/90">
                 <a
                   href="tel:0483948750"
-                  className="hover:text-[#03A9F4] transition-colors flex items-center gap-2"
+                  className="hover:text-white transition-colors flex items-center gap-2 font-medium"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#03A9F4]" /> 0483 948 750
+                  <Phone className="w-3.5 h-3.5 shrink-0" /> 0483 948 750
                 </a>
                 <span className="flex items-start gap-2">
-                  <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0 text-[#03A9F4]" />
-                  Brisbane · Perth · Melbourne · Sydney · Adelaide
+                  <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0" />
+                  <span>
+                    Brisbane, Perth, Melbourne, Sydney, Adelaide, Canberra, Gold
+                    Coast and Sunshine Coast
+                  </span>
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-gray-100 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-400">
+          <div className="border-t border-white/20 pt-5 flex justify-center items-center text-xs text-white/70">
             <span>
               © {new Date().getFullYear()} Optima Cleaners. All rights reserved.
-            </span>
-            <span>
-              Built with ❤️ using{" "}
-              <a
-                href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(typeof window !== "undefined" ? window.location.hostname : "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gray-600 transition-colors underline"
-              >
-                caffeine.ai
-              </a>
             </span>
           </div>
         </div>

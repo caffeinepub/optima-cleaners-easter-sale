@@ -72,14 +72,9 @@ function PillButton({
     outline: "border-2 bg-transparent hover:bg-brand-mint-lighter",
   };
 
-  const [hovered, setHovered] = useState(false);
-
   const inlineStyles: React.CSSProperties =
     variant === "primary"
-      ? {
-          backgroundColor: hovered ? "#0288D1" : "#03A9F4",
-          transition: "background-color 0.2s",
-        }
+      ? { backgroundColor: "#03A9F4" }
       : variant === "white"
         ? { color: "#03A9F4" }
         : { borderColor: "#03A9F4", color: "#03A9F4" };
@@ -91,8 +86,6 @@ function PillButton({
       disabled={disabled}
       data-ocid={dataOcid}
       style={inlineStyles}
-      onMouseEnter={() => variant === "primary" && setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
       className={`${base} ${variants[variant]} ${className}`}
     >
       {children}
@@ -428,12 +421,12 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 {/* LEFT: existing content + trust points */}
                 <div>
-                  <div className="animate-fade-up inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white border border-white/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-3">
+                  <div className="animate-fade-up inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white border border-white/30 rounded-full px-4 py-1.5 text-sm font-semibold mb-6">
                     🐣 Limited-Time Easter Offer – Ends Soon
                   </div>
 
                   <h1
-                    className="animate-fade-up text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-4"
+                    className="animate-fade-up text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6"
                     style={{
                       transitionDelay: "0.1s",
                       textShadow:
@@ -446,7 +439,7 @@ export default function App() {
                   </h1>
 
                   <p
-                    className="animate-fade-up text-lg sm:text-xl text-white/90 mb-6 leading-relaxed"
+                    className="animate-fade-up text-lg sm:text-xl text-white/90 mb-10 leading-relaxed"
                     style={{
                       transitionDelay: "0.2s",
                       textShadow:
@@ -802,7 +795,7 @@ export default function App() {
 
         {/* ── Google Reviews / Testimonials Section ── */}
         <section
-          className="py-16 px-4 bg-white"
+          className="py-16 px-4 bg-white overflow-hidden"
           data-ocid="testimonials.section"
         >
           <div className="max-w-5xl mx-auto text-center mb-10 animate-fade-up">
@@ -818,12 +811,9 @@ export default function App() {
           </div>
 
           {/* Desktop: CSS infinite scroll animation */}
-          <div
-            className="hidden md:block py-10"
-            style={{ overflowX: "clip", overflowClipMargin: "20px" }}
-          >
+          <div className="hidden md:block overflow-hidden">
             <div
-              className="flex gap-8 animate-testimonials-scroll"
+              className="flex gap-6 animate-testimonials-scroll"
               style={{ width: "max-content" }}
             >
               {[
@@ -878,17 +868,15 @@ export default function App() {
               ].map((item, i) => (
                 <div
                   key={item.id}
-                  className="flex-shrink-0 rounded-2xl review-card"
+                  className="flex-shrink-0 rounded-2xl shadow-xl overflow-hidden"
                   style={{ width: "380px" }}
                   data-ocid={`testimonials.item.${(i % 6) + 1}`}
                 >
-                  <div className="rounded-2xl overflow-hidden">
-                    <img
-                      src={item.src}
-                      alt={`Customer review ${(i % 6) + 1}`}
-                      className="w-full h-auto object-cover block"
-                    />
-                  </div>
+                  <img
+                    src={item.src}
+                    alt={`Customer review ${(i % 6) + 1}`}
+                    className="w-full h-auto object-cover block"
+                  />
                 </div>
               ))}
             </div>
@@ -896,7 +884,7 @@ export default function App() {
 
           {/* Mobile: touch scroll with snap */}
           <div
-            className="md:hidden flex gap-4 overflow-x-auto py-4"
+            className="md:hidden flex gap-4 overflow-x-auto pb-4"
             style={{
               scrollSnapType: "x mandatory",
               WebkitOverflowScrolling: "touch",
@@ -913,17 +901,15 @@ export default function App() {
             ].map((src, i) => (
               <div
                 key={src}
-                className="flex-shrink-0 rounded-2xl review-card"
+                className="flex-shrink-0 rounded-2xl shadow-md overflow-hidden"
                 style={{ width: "85vw", scrollSnapAlign: "center" }}
                 data-ocid={`testimonials.item.${i + 1}`}
               >
-                <div className="rounded-2xl overflow-hidden">
-                  <img
-                    src={src}
-                    alt={`Customer review ${i + 1}`}
-                    className="w-full h-auto object-cover block"
-                  />
-                </div>
+                <img
+                  src={src}
+                  alt={`Customer review ${i + 1}`}
+                  className="w-full h-auto object-cover block"
+                />
               </div>
             ))}
           </div>
@@ -989,12 +975,8 @@ export default function App() {
 
               {/* Card 2 – Yellow (highlighted) */}
               <div
-                className="rounded-3xl p-6 flex flex-col gap-4 border-[3px] border-[#03A9F4] relative scale-105"
-                style={{
-                  boxShadow:
-                    "0 8px 40px 0 rgba(3,169,244,0.28), 0 4px 16px 0 rgba(0,0,0,0.12)",
-                  backgroundColor: "#FFFFFF",
-                }}
+                className="rounded-3xl p-6 flex flex-col gap-4 shadow-2xl border-[3px] border-[#03A9F4] relative scale-105"
+                style={{ backgroundColor: "#FFFFFF" }}
               >
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span
@@ -1203,9 +1185,7 @@ export default function App() {
         <section
           id="offer"
           className="py-16 px-4"
-          style={{
-            background: "linear-gradient(135deg, #29B6F6 0%, #0288D1 100%)",
-          }}
+          style={{ background: "oklch(var(--brand-teal))" }}
         >
           <div className="max-w-3xl mx-auto text-center animate-fade-up">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
