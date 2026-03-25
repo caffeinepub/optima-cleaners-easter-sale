@@ -428,16 +428,17 @@ export default function App() {
 
           {/* Hero content — 2-column grid */}
           <div className="relative z-10 flex-1 flex items-center">
-            <div className="max-w-7xl ml-auto mr-[max(0px,calc((100vw-72rem)/2))] px-4 py-12 sm:py-16 w-full">
+            <div className="max-w-7xl ml-auto mr-[max(0px,calc((100vw-72rem)/2))] px-4 py-8 sm:py-16 w-full">
               <div className="grid grid-cols-1 lg:grid-cols-[58%_42%] gap-8 items-center">
                 {/* LEFT: existing content + trust points */}
-                <div className="pl-0">
-                  <div className="animate-fade-up inline-flex items-center gap-2 bg-black/40 backdrop-blur-md text-white border border-white/40 rounded-full px-4 py-2 text-sm font-semibold mb-6">
+                <div className="pl-0 relative">
+                  <div className="absolute inset-0 sm:hidden bg-gradient-to-r from-black/25 to-transparent rounded-lg -z-10 pointer-events-none" />
+                  <div className="animate-fade-up inline-flex items-center gap-2 bg-black/40 backdrop-blur-md text-white border border-white/40 rounded-full px-3 py-1.5 text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
                     🐣 Limited-Time Easter Offer – Ends Soon
                   </div>
 
                   <h1
-                    className="animate-fade-up text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6"
+                    className="animate-fade-up text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6"
                     style={{
                       transitionDelay: "0.1s",
                       lineHeight: "1.15",
@@ -448,18 +449,23 @@ export default function App() {
                     <span className="block whitespace-nowrap text-yellow-200">
                       Easter Cleaning Sale
                     </span>
-                    <span className="block">
+                    <span className="block sm:hidden">
+                      Get Your Home Ready
+                      <br />
+                      Before Guests Arrive
+                    </span>
+                    <span className="hidden sm:block">
                       Get Your Home Ready Before Guests Arrive
                     </span>
                   </h1>
 
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-5 py-5 mb-8 shadow-md border border-white/20">
+                  <div className="mb-5 sm:mb-8">
                     <p
-                      className="animate-fade-up text-lg sm:text-xl text-white font-medium leading-relaxed max-w-xl mb-4"
+                      className="animate-fade-up text-base sm:text-xl text-white font-medium leading-relaxed max-w-xl mb-3 sm:mb-4"
                       style={{
                         transitionDelay: "0.2s",
                         textShadow:
-                          "0 1px 12px rgba(0,0,0,0.55), 0 1px 4px rgba(0,0,0,0.4)",
+                          "0 1px 12px rgba(0,0,0,0.65), 0 1px 4px rgba(0,0,0,0.5)",
                       }}
                     >
                       Save up to <strong className="text-white">$150</strong> on
@@ -474,7 +480,7 @@ export default function App() {
                       <PillButton
                         onClick={scrollToQuote}
                         variant="primary"
-                        className="text-base font-bold px-10 py-5 animate-pulse-soft"
+                        className="text-sm sm:text-base font-bold px-6 sm:px-10 py-3 sm:py-5 animate-pulse-soft"
                         data-ocid="hero.book_easter_clean.primary_button"
                       >
                         🐰 Get My Quote
