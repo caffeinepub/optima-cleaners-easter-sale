@@ -8,15 +8,15 @@
 
     /* Optima Cleaners — brand palette #03A9F4 */
     /* Primary blue #03A9F4 */
-    --brand-teal: 0.66 0.18 210;
+    --brand-teal: 0.706 0.186 224;
     /* Light background tint #E1F5FE */
-    --brand-mint-light: 0.96 0.03 210;
+    --brand-mint-light: 0.96 0.03 224;
     /* Lighter tint */
-    --brand-mint-lighter: 0.97 0.02 210;
+    --brand-mint-lighter: 0.97 0.02 224;
     /* Warm cream #F7EFD3 */
     --brand-cream: 0.96 0.04 88;
     /* Card blue */
-    --card-mint: 0.94 0.04 210;
+    --card-mint: 0.94 0.04 224;
     /* Card yellow #F3E2A6 */
     --card-yellow: 0.92 0.085 90;
     /* Card peach #F1C6AA */
@@ -28,31 +28,31 @@
     --card-foreground: 0.16 0.01 250;
     --popover: 1 0 0;
     --popover-foreground: 0.16 0.01 250;
-    --primary: 0.66 0.18 210;
+    --primary: 0.706 0.186 224;
     --primary-foreground: 0.99 0 0;
-    --secondary: 0.96 0.03 210;
-    --secondary-foreground: 0.66 0.18 210;
-    --muted: 0.97 0.015 210;
+    --secondary: 0.96 0.03 224;
+    --secondary-foreground: 0.706 0.186 224;
+    --muted: 0.97 0.015 224;
     --muted-foreground: 0.44 0.02 250;
     --accent: 0.96 0.04 88;
     --accent-foreground: 0.16 0.01 250;
     --destructive: 0.577 0.245 27.325;
     --destructive-foreground: 0.985 0 0;
-    --border: 0.9 0.02 210;
-    --input: 0.9 0.02 210;
-    --ring: 0.66 0.18 210;
-    --chart-1: 0.66 0.18 210;
-    --chart-2: 0.6 0.12 210;
-    --chart-3: 0.94 0.04 210;
+    --border: 0.9 0.02 224;
+    --input: 0.9 0.02 224;
+    --ring: 0.706 0.186 224;
+    --chart-1: 0.706 0.186 224;
+    --chart-2: 0.6 0.12 224;
+    --chart-3: 0.94 0.04 224;
     --chart-4: 0.92 0.085 90;
     --chart-5: 0.85 0.085 50;
-    --sidebar: 0.66 0.18 210;
+    --sidebar: 0.706 0.186 224;
     --sidebar-foreground: 0.99 0 0;
     --sidebar-primary: 0.99 0 0;
-    --sidebar-primary-foreground: 0.66 0.18 210;
-    --sidebar-accent: 0.55 0.14 210;
+    --sidebar-primary-foreground: 0.706 0.186 224;
+    --sidebar-accent: 0.55 0.14 224;
     --sidebar-accent-foreground: 0.99 0 0;
-    --sidebar-border: 0.55 0.14 210;
+    --sidebar-border: 0.55 0.14 224;
     --sidebar-ring: 0.99 0 0;
   }
 
