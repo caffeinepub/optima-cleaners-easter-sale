@@ -238,8 +238,7 @@ export default function App() {
             <img
               src="https://res.cloudinary.com/dxqa2ywnx/image/upload/v1774399266/logo_02a8f4_1_igbxuh.svg"
               alt="Optima Cleaners"
-              className="h-10 w-auto object-contain"
-              style={{ maxWidth: 180 }}
+              className="h-[45px] w-auto object-contain"
             />
           </div>
 
@@ -1429,16 +1428,18 @@ export default function App() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
             {/* Brand column */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col items-center text-center">
               <img
-                src="https://res.cloudinary.com/dxqa2ywnx/image/upload/v1774399266/logo_02a8f4_1_igbxuh.svg"
+                src="https://res.cloudinary.com/dxqa2ywnx/image/upload/v1774513326/logo-bw_copy_wynaet.png"
                 alt="Optima Cleaners"
-                className="h-8 w-auto object-contain bg-white rounded px-2 py-1"
-                style={{ maxWidth: 160 }}
+                className="h-[70px] w-auto object-contain mb-2"
+                style={{ maxWidth: 220 }}
               />
-              <p className="text-white/90 text-sm max-w-xs">
-                Trusted by hundreds of Australian households. Safe,
-                professional, and always on time.
+              <p className="text-white font-semibold text-sm leading-none">
+                Trusted Local Cleaning Experts
+              </p>
+              <p className="text-white/80 text-xs mt-1.5">
+                Licensed &amp; Insured • 7-Day Availability • Flexible Service
               </p>
             </div>
 
