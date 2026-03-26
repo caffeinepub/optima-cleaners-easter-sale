@@ -1426,13 +1426,13 @@ export default function App() {
       {/* ── Footer ── */}
       <footer className="bg-[#03A9F4] py-10 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8 items-start">
             {/* Brand column */}
-            <div className="flex flex-col items-center text-center">
+            <div className="text-center sm:self-start">
               <img
                 src="https://res.cloudinary.com/dxqa2ywnx/image/upload/v1774513326/logo-bw_copy_wynaet.png"
                 alt="Optima Cleaners"
-                className="h-[70px] w-auto object-contain mb-[10px]"
+                className="h-[70px] w-auto object-contain mb-[10px] block mx-auto"
                 style={{ maxWidth: 220 }}
               />
               <p className="text-white font-bold text-sm leading-none">
@@ -1489,10 +1489,30 @@ export default function App() {
             </div>
           </div>
 
-          <div className="border-t border-white/20 pt-5 flex justify-center items-center text-xs text-white/70">
-            <span>
-              © {new Date().getFullYear()} Optima Cleaners. All rights reserved.
-            </span>
+          <div className="border-t border-white/20 pt-5 flex justify-center items-center text-center">
+            <p className="text-xs text-white/75 flex flex-wrap justify-center items-center gap-x-2 gap-y-1">
+              <span>© 2026 Optima Cleaners. All rights reserved.</span>
+              <span className="text-white/40">|</span>
+              <a
+                href="https://optimacleaners.com.au/privacy-policy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/75 hover:text-white hover:underline transition-all duration-200"
+              >
+                Privacy Policy
+              </a>
+              <span className="text-white/40">|</span>
+              <a
+                href="https://optimacleaners.com.au/terms-of-use/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/75 hover:text-white hover:underline transition-all duration-200"
+              >
+                Terms and Conditions
+              </a>
+              <span className="text-white/40">|</span>
+              <span>ABN 60 634 762 600</span>
+            </p>
           </div>
         </div>
       </footer>
