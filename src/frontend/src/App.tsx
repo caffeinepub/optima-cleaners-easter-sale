@@ -1426,13 +1426,13 @@ export default function App() {
       {/* ── Footer ── */}
       <footer className="bg-[#03A9F4] py-10 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8 items-start">
+          <div className="grid grid-cols-1 sm:grid-cols-[38%_31%_31%] gap-8 mb-8 items-start">
             {/* Brand column */}
-            <div className="text-center sm:self-start">
+            <div className="text-center sm:self-start sm:-ml-6">
               <img
                 src="https://res.cloudinary.com/dxqa2ywnx/image/upload/v1774513326/logo-bw_copy_wynaet.png"
                 alt="Optima Cleaners"
-                className="h-[70px] w-auto object-contain mb-[10px] block mx-auto"
+                className="h-[78px] w-auto object-contain mb-[10px] block mx-auto"
                 style={{ maxWidth: 220 }}
               />
               <p className="text-white font-bold text-sm leading-none">
