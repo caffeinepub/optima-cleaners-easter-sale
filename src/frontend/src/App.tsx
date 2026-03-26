@@ -1432,13 +1432,13 @@ export default function App() {
               <img
                 src="https://res.cloudinary.com/dxqa2ywnx/image/upload/v1774513326/logo-bw_copy_wynaet.png"
                 alt="Optima Cleaners"
-                className="h-[70px] w-auto object-contain mb-2"
+                className="h-[70px] w-auto object-contain mb-[10px]"
                 style={{ maxWidth: 220 }}
               />
-              <p className="text-white font-semibold text-sm leading-none">
+              <p className="text-white font-bold text-sm leading-none">
                 Trusted Local Cleaning Experts
               </p>
-              <p className="text-white/80 text-xs mt-1.5">
+              <p className="text-white/95 text-xs mt-[7px] leading-snug">
                 Licensed &amp; Insured • 7-Day Availability • Flexible Service
               </p>
             </div>
